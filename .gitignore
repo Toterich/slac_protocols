@@ -1,5 +1,4 @@
-# Ignore local changes to local path
-build_params.local.ps1
+build_params.bat
 
 # Build artifacts
 build_*/

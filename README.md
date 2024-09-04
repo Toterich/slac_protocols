@@ -28,15 +28,23 @@ If you're on another target or want to modify and recompile the dissectors yours
 
 ## Compilation
 
-Building this project has only been tested on Windows at this time.
+This project can only be built on Windows 10/11 at this time.
 
 ### Dependencies
 
+In order to build wireshark, the following dependencies need to be met:
+
 * Visual Studio 2022
+* Python3
+* Flex
+  * This can be installed with chocolatey, via `choco install winflexbison3`
 
 ### Build
 
-In order to build, copy the file `build_params.ps1` to `build_params.local.ps1` and modify it to match your local installation. Then, just execute `configure_and_build.ps1` in Powershell. The script will trigger the compilation of Wireshark along with the dissector plugins. Unfortunately, the plugin architecture of Wireshark is such that the whole application needs to be built in order to create some plugin DLLs, so the build process may take some time.
+Copy the file `build_params.bat.template` to `build_params.bat` and modify it to match your local installation. Then, just execute `configure_and_build.bat`.
+The script will trigger the compilation of Wireshark along with the dissector plugins. Unfortunately, the plugin architecture of Wireshark is such that the whole application needs to be built in order to create some plugin DLLs, so the build process may take some time.
+
+NOTE: For configuring the build process, a symbolic link needs to be created inside the wireshark subdirectory. This requires either Administrator priviliges or the Windows Developer mode to be active.
 
 After the build process finishes, the plugin dlls can be found in the build directory, e.g. for a build with Wireshark 4.0, in `build_win64\run\Release\plugins\4.0\epan`.
 

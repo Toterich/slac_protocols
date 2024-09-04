@@ -1,3 +1,4 @@
+@echo on
 setlocal
 
 call %1\VC\Auxiliary\Build\vcvarsall.bat x86_amd64

@@ -1,0 +1,6 @@
+# Ignore local changes to local path
+build_params.local.ps1
+
+# Build artifacts
+build_*/
+wireshark-*-libs*/
